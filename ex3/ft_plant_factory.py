@@ -10,19 +10,19 @@ class Plant:
         return self.height / self._age if self._age != 0 else 0.0
 
     @property
-    def name_pretty(self) -> str:
+    def name_str(self) -> str:
         return self.name.capitalize()
 
     @property
-    def height_with_unit(self) -> str:
+    def height_str(self) -> str:
         return f"{self.height}cm"
 
     @property
-    def age_with_unit(self) -> str:
+    def age_str(self) -> str:
         return f"{self._age} days old"
 
     def get_info(self) -> None:
-        print(f"Created: {self.name_pretty}: ({self.height_with_unit}, {self.age_with_unit})")
+        print(f"Created: {self.name_str}: ({self.height_str}, {self.age_str})")
 
     def age(self, days: int) -> None:
         rate = self.growth_rate
@@ -39,7 +39,7 @@ class Plant:
 if __name__ == "__main__":
     print("== Plant Factory Output ===")
 
-    rose =["rose", 25, 30]
+    rose = ["rose", 25, 30]
     sunflower = ["sunflower", 80, 45]
     cactus = ["cactus", 15, 120]
     monstera = ["monstera", 90, 300]
@@ -51,5 +51,5 @@ if __name__ == "__main__":
         instance = Plant(name, height, age)
         plant_instances.append(instance)
 
-    print()  
+    print()
     print(f"Total plants created: {len(plant_instances)}")

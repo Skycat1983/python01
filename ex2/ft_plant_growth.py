@@ -9,19 +9,19 @@ class Plant:
         return self._height / self._age if self._age != 0 else 0.0
 
     @property
-    def name(self) -> str:
+    def name_str(self) -> str:
         return self._name.capitalize()
 
     @property
-    def height(self) -> str:
+    def height_str(self) -> str:
         return f"{self._height}cm"
 
     @property
-    def age(self) -> str:
+    def age_str(self) -> str:
         return f"{self._age} days old"
 
     def get_info(self) -> None:
-        print(f"{self.name}: {self.height}, {self.age}")
+        print(f"{self.name_str}: {self.height_str}, {self.age_str}")
 
     def age(self, days: int) -> None:
         rate = self.growth_rate
@@ -46,7 +46,7 @@ if __name__ == "__main__":
         plant.get_info()
 
     for plant in plants:
-        plant.age(7)
+        plant.age_plant(7)
 
     for plant in plants:
         plant.get_info()

@@ -1,5 +1,3 @@
-#  manager: "GardenManager" = dependency injection. the quotes are like hoisting
-#* Each garden should track plant collections and statistics
 class GardenStats:
     def __init__(self) -> None:
         self.last_recorded_heights: dict[int, int] = {}
@@ -22,9 +20,9 @@ class GardenStats:
 
 
 class Garden:
-    def __init__(self, garden_id: int, owner_name: str, manager: "GardenManager") -> None:
-        self.id = garden_id
-        self.owner_name = owner_name
+    def __init__(self, id: int, owner: str, manager: "GardenManager") -> None:
+        self.id = id
+        self.owner_name = owner
         self._manager = manager
         self.plants: dict[int, Plant] = {}
         self._stats = GardenStats()
@@ -83,7 +81,7 @@ class GardenManager:
             total += garden.stats.total_plants
         return total
     
-    def generate_report(self, garden_id:int)-> None:
+    def generate_report(self, garden_id: int) -> None:
         garden = self.get_garden(garden_id)
         owner = garden.owner_name.title()
         print(f"=== {owner}'s Garden Report ===")
@@ -120,7 +118,7 @@ class Plant:
         return self._height
 
     @property
-    def height_str(self)-> str:
+    def height_str(self) -> str:
         return (f"{self._height}cm")
     
     def grow(self) -> None:
@@ -133,7 +131,7 @@ class Plant:
 
 
 class FloweringPlant(Plant):
-    def __init__(self, name: str, height: int, color: str)-> None:
+    def __init__(self, name: str, height: int, color: str) -> None:
         super().__init__(name, height)
         self._color = color
 
@@ -143,8 +141,8 @@ class FloweringPlant(Plant):
 
 
 class PrizePlant(FloweringPlant):
-    def __init__(self, name: str, height: int,color: str)-> None:
-        super().__init__(name, height , color)
+    def __init__(self, name: str, height: int, color: str) -> None:
+        super().__init__(name, height, color)
 
 
 if __name__ == "__main__":

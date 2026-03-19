@@ -29,7 +29,7 @@ class SecurePlant:
         return True
 
     def get_name(self) -> str:
-        return self._name
+        return self._name.title()
 
     def get_age(self) -> int:
         return self._age
@@ -101,15 +101,11 @@ if __name__ == "__main__":
         if plant is None:
             print("Plant not found.")
             continue
-
-        # ---- GET ----
         if action == "G":
             if prop == "a":
                 print(f"{plant.get_name().title()}: {plant.get_age()} days")
             elif prop == "h":
                 print(f"{plant.get_name().title()}: {plant.get_height()}cm")
-
-        # ---- SET ----
         elif action == "S":
             try:
                 new_value = int(input("Enter new value: "))
@@ -125,4 +121,4 @@ if __name__ == "__main__":
 
             if ok:
                 unit = "days" if prop == "a" else "cm"
-                print(f"{plant.get_name().title}: updated to {new_value}{unit} [OK]")
+                print(f"{plant.get_name()}: updated to {new_value}{unit} [OK]")
