@@ -1,17 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_plant_factory.py                                :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: helaouta <helaouta@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/03 14:06:51 by helaouta          #+#    #+#              #
-#    Updated: 2026/03/03 14:06:52 by helaouta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
-
 class Plant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
@@ -67,12 +53,3 @@ if __name__ == "__main__":
 
     print()  
     print(f"Total plants created: {len(plant_instances)}")
-
-
-# def ft_plant_growth():
-
-    # rose = Plant("rose", 25, 30)
-    # sunflower = Plant("sunflower", 80, 45)
-    # cactus = Plant("cactus", 15, 120)
-    # monstera = Plant("monstera", 90, 300)
-    # tree = Plant("tree", 300, 400)

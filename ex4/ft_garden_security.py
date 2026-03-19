@@ -1,29 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_garden_security.py                              :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: helaouta <helaouta@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/03 14:06:31 by helaouta          #+#    #+#              #
-#    Updated: 2026/03/03 14:06:31 by helaouta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
-
-
-# A property is not a variable.
-# # It is a function disguised as a variable.
-# Requirements:
-# • Create a SecurePlant that protects its data from corruption
-# • Provide controlled ways to modify plant data: set_height(), set_age()
-# • Provide safe ways to access plant data: get_height(), get_age()
-# • Ensure plant height cannot be negative through validation
-# • Ensure plant age cannot be negative through validation
-# • Print error messages when invalid values are attempted
-# • Think about encapsulation - protecting important data from direct access
-
 class SecurePlant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self._validate_strict("Height", height)
@@ -152,4 +126,3 @@ if __name__ == "__main__":
             if ok:
                 unit = "days" if prop == "a" else "cm"
                 print(f"{plant.get_name().title}: updated to {new_value}{unit} [OK]")
-

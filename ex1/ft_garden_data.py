@@ -1,40 +1,29 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_garden_data.py                                  :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: helaouta <helaouta@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/03 14:06:40 by helaouta          #+#    #+#              #
-#    Updated: 2026/03/03 14:06:41 by helaouta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
-
 # @property = decorator
-#! range() allowed: why
+# ! range() allowed: why
 class Plant:
-    def __init__(self, name: str, height:int, age:int):
-        self.name = name
-        self.height = height
-        self.age = age
+    def __init__(self, name: str, height: int, age: int):
+        self._name = name
+        self._height = height
+        self._age = age
 
     @property
-    def name_with_unit(self) -> str:
-        return self.name.capitalize()
+    def name(self) -> str:
+        return self._name.capitalize()
 
     @property
-    def height_with_unit(self) -> str:
-        return f"{self.height}cm"
+    def height(self) -> str:
+        return f"{self._height}cm"
 
     @property
-    def age_with_unit(self) -> str:
-        return f"{self.age} days old"
+    def age(self) -> str:
+        return f"{self._age} days old"
 
 
 if __name__ == "__main__":
-    plants = [Plant("rose", 25, 30), Plant("sunflower", 80, 45), Plant("cactus",15, 120)]
-    
+    rose = Plant("rose", 25, 30)
+    sunflower = Plant("sunflower", 80, 45)
+    cactus = Plant("cactus", 15, 120)
+
+    plants = [rose, sunflower, cactus]
     for plant in plants:
-        print(f"{plant.name_with_unit}:",  f"{plant.height_with_unit},", plant.age_with_unit)
+        print(f"{plant.name}:",  f"{plant.height},", plant.age)

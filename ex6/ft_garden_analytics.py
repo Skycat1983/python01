@@ -1,19 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_garden_analytics.py                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: helaouta <helaouta@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/04 13:20:03 by helaouta          #+#    #+#              #
-#    Updated: 2026/03/09 12:34:21 by helaouta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-#? 1. what is a component in . class representing 
-#? 2. where are static methods called from? within the class? or outside it?
-#? 3. brief asks for utility  that don't need specific garden data. do they belong inside classes, or outside?
-
 #  manager: "GardenManager" = dependency injection. the quotes are like hoisting
 #* Each garden should track plant collections and statistics
 class GardenStats:
@@ -35,6 +19,7 @@ class GardenStats:
     def update_record_for_plant(self, plant_id: int, plant: "Plant") -> None:
         self.last_recorded_heights[plant_id] = plant.height
         self._last_recorded_count = len(self.last_recorded_heights)
+
 
 class Garden:
     def __init__(self, garden_id: int, owner_name: str, manager: "GardenManager") -> None:
@@ -60,7 +45,6 @@ class Garden:
         for plant in plants.values():
             plant.grow()
         
-
 
 class GardenManager:
     def __init__(self) -> None:
@@ -117,7 +101,6 @@ class GardenManager:
         print(f"Plants added: {added}, Total growth: {total_growth}")
 
 
-
 class Plant:
     def __init__(self, name: str, height: int)-> None:
         self._name = name
@@ -158,6 +141,7 @@ class FloweringPlant(Plant):
     def flowers(self)-> str:
         return (f"{self._color} flowers (blooming)")
 
+
 class PrizePlant(FloweringPlant):
     def __init__(self, name: str, height: int,color: str)-> None:
         super().__init__(name, height , color)
@@ -185,16 +169,3 @@ if __name__ == "__main__":
     print()
 
     garden_manager.generate_report(1)
-
-
-
-    
-
-
-    # flower = Flower("flower", 25, 30, "red")
-    # tree = Tree("tree", 500, 1825, 50)
-    # vegetable = Vegetable("tomato", 80, 90, "summer", "Vitamin C")
-    # flower.bloom()
-    # tree.produce_shade()
-    # vegetable.nutritional_value()
-
